@@ -7,7 +7,7 @@ function App() {
 
   useEffect( () => {
     async function loadData() {
-      const businessResponse = await fetch("http://localhost:3001/api/business");
+      const businessResponse = await fetch("http://localhost:3001/api/business/frontend");
     const business = await businessResponse.json();
     setBusiness(business);
 
@@ -36,7 +36,7 @@ function App() {
         {business != null ? (
           <ul>
             <li>{business.title}</li>
-            <li>{business.adress}</li>
+            <li>{business.address}</li>
             <li>{business.city}</li>
             <li>{business.state}</li>
             <li>{business.country}</li>

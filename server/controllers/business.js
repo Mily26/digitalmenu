@@ -1,15 +1,16 @@
-class BusinessController {
-    getData(req, res) {
-        const result = {
-            title: 'FrontEnd Bar',
-            adress: 'Avenida Sarmiento 1254',
-            city: 'Santiago Temple',
-            state: 'Córdoba',
-            country: 'Argentina',
-            mail: 'fontendbar@gmail.com',
-            phone: '03574-15423222'
-        };
 
+
+class BusinessController {
+    constructor(businessService) {
+        this.businessService = businessService;
+    }
+    async listBusiness(req, res) {
+        const result = await this.businessService.listBusiness();
+        res.json(result);
+    }
+    async getBusiness(req,res) {
+        const code = req.params.code;
+        const result = await this.businessService.getBusiness(code);
         res.json(result);
     }
 }
