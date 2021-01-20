@@ -11,7 +11,7 @@ function App() {
     const business = await businessResponse.json();
     setBusiness(business);
 
-    const menuResponse = await fetch('http://localhost:3001/api/menu');
+    const menuResponse = await fetch('http://localhost:3001/api/menu/frontend');
     const menu = await menuResponse.json();
     setMenu(menu);
     }

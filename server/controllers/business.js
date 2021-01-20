@@ -11,7 +11,12 @@ class BusinessController {
     async getBusiness(req,res) {
         const code = req.params.code;
         const result = await this.businessService.getBusiness(code);
-        res.json(result);
+        if(result == null) {
+            res.sendStatus(404);
+        } else {
+            res.json(result);
+        }
+        
     }
 }
 
